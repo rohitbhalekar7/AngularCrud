@@ -1,2 +1,2 @@
 # AngularCrud
-Angular Crud test app
+Angular Crud test Application
