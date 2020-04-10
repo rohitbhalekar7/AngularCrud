@@ -1,1 +1,27 @@
-<p>product-list works!</p>
+<div class="mat-body-1 body-padding">
+  <div class="component">
+
+    <span class="mat-h1">Product List</span>
+    <span>
+
+      <div class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Item To Add" [(ngModel)]="prod" (keyup.enter)="addItem()">
+        </mat-form-field>
+        <button mat-button type="button" (click)="addItem()">Add</button>
+        <button mat-button type="button" (click)="delItem()">Delete</button>
+      </div>
+    </span>
+    <span>
+      <div *ngIf="ProdLists">
+        <mat-selection-list [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+          <mat-list-option *ngFor="let item of ProdLists" [value]="item.id">
+            {{item.name}}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </span>
+
+  </div>
+</div>

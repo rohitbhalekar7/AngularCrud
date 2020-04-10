@@ -1,8 +1,9 @@
 <div class="main-body">
 
-  <mat-selection-list role="listbox">
+  <span class="list-row">
     <div mat-subheader>List Of Product</div>
-    <mat-list-item role="option" *ngFor="let item of ProdList"> {{item.id}} </mat-list-item>
+    <a mat-button *ngFor="let item of ProdList" (click)="selectedDiv(item)">{{item.id}}</a>
 
-  </mat-selection-list>
+  </span>
 </div>
+<app-prod-details [selectedDiv]="Divselection"></app-prod-details>

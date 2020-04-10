@@ -3,3 +3,11 @@
   flex-direction: column;
   padding: 2rem;
 }
+
+.list-row {
+  /* display: flex;
+  */
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}

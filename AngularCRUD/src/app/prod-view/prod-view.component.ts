@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { IProdView } from '../Shared/IProdView';
 
 const conProdList: IProdView[] = [
-  { id: 1, name: 'adasd', add: 'dasdasdsa' },
+  { id: 1, name: 'Rohit', add: 'Panvel' },
   {
-    id: 2, name: 'adasd', add: 'dasdasdsa'
+    id: 2, name: 'Vishal', add: 'Kamothe'
   }, {
-    id: 2, name: 'dasdas', add: 'dsadsad'
+    id: 2, name: 'Nitesh', add: 'govandi'
   }
 
 ];
@@ -18,10 +18,13 @@ const conProdList: IProdView[] = [
 
 export class ProdViewComponent implements OnInit {
 
+  Divselection: IProdView;
   constructor() { }
-
   ProdList = conProdList;
   ngOnInit(): void {
 
+  }
+  selectedDiv(item) {
+    this.Divselection = item;
   }
 }

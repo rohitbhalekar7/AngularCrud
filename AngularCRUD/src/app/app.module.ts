@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,10 +13,10 @@ import { ProdViewComponent } from './prod-view/prod-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProdDetailsComponent } from './prod-details/prod-details.component';
 
-const appRoutes:Routes=[
-{path:'prodview',component:ProdViewComponent},
-{path:'prodlist',component:ProductListComponent},
-{path:'',redirectTo:"/",pathMatch:'full'}
+const appRoutes: Routes = [
+  { path: 'prodview', component: ProdViewComponent },
+  { path: 'prodlist', component: ProductListComponent },
+  { path: '', redirectTo: "/", pathMatch: 'full' }
 
 ];
 @NgModule({
@@ -31,7 +32,7 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModuleModule
+    MaterialModuleModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
