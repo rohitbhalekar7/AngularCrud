@@ -12,10 +12,13 @@ import { ProdViewComponent } from './prod-view/prod-view.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ProdDetailsComponent } from './prod-details/prod-details.component';
+import { DataTableExampleComponent } from './data-table-example/data-table-example.component';
+
 
 const appRoutes: Routes = [
   { path: 'prodview', component: ProdViewComponent },
   { path: 'prodlist', component: ProductListComponent },
+  { path: 'DataTableExample', component: DataTableExampleComponent },
   { path: '', redirectTo: "/", pathMatch: 'full' }
 
 ];
@@ -25,6 +28,7 @@ const appRoutes: Routes = [
     ProductListComponent,
     ProdViewComponent,
     ProdDetailsComponent,
+    DataTableExampleComponent
 
   ],
   imports: [

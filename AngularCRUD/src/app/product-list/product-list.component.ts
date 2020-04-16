@@ -12,6 +12,7 @@ export interface IProds {
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
   prod;
   selectedOptions = '';
   //

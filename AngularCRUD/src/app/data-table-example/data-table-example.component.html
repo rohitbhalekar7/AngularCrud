@@ -1,0 +1,22 @@
+<div class="table">
+  <span class="mat-h4">Product List</span>
+  <br>
+  <label>Search :</label>
+  <input type="text" [(ngModel)]="FilteredQuery" />
+  <p>Filtered by {{FilteredQuery}}</p>
+  <table style="width: 100%;">
+    <thead class="mat-h2">Table</thead>
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+      <tr *ngFor="let item of FilterData">
+        <td>{{item.Id}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.ProdValue}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
