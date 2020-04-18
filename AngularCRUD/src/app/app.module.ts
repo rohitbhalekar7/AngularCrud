@@ -13,6 +13,8 @@ import { ProdViewComponent } from './prod-view/prod-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProdDetailsComponent } from './prod-details/prod-details.component';
 import { DataTableExampleComponent } from './data-table-example/data-table-example.component';
+import { ChildDataTableDescComponent } from './child-data-table-desc/child-data-table-desc.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     ProductListComponent,
     ProdViewComponent,
     ProdDetailsComponent,
-    DataTableExampleComponent
+    DataTableExampleComponent,
+    ChildDataTableDescComponent
 
   ],
   imports: [
@@ -36,7 +39,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModuleModule, FormsModule
+    MaterialModuleModule, FormsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

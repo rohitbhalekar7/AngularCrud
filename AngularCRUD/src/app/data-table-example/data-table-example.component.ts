@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdDataSer } from '../Shared/ProdDataSer';
+import { ProdServiceService } from '../Shared/prod-service.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 export interface IProduct {
@@ -6,31 +9,7 @@ export interface IProduct {
   Name: string;
   ProdValue: number;
 }
-const ProdData: IProduct[] = [
-  {
-    Id: 1,
-    Name: 'Rohit',
-    ProdValue: 100
-  }, {
-    Id: 2,
-    Name: 'Vinay',
-    ProdValue: 1200
-  }
-  , {
-    Id: 3,
-    Name: 'Vishal',
-    ProdValue: 1300
-  }, {
-    Id: 4,
-    Name: 'Nitish',
-    ProdValue: 1500
-  }, {
-    Id: 5,
-    Name: 'Pratik',
-    ProdValue: 1600
-  }
 
-];
 @Component({
   selector: 'app-data-table-example',
   templateUrl: './data-table-example.component.html',
@@ -40,13 +19,13 @@ const ProdData: IProduct[] = [
 
 export class DataTableExampleComponent implements OnInit {
 
-  constructor() {
-    console.log("constructor");
-    this.FilterData = this.DataTableData;
+  constructor(private oProdDataSer: ProdServiceService) {
+    // console.log("constructor");
 
   }
-  DataTableData: IProduct[] = ProdData;
+  DataTableData: IProduct[];
   FilterData: IProduct[];
+  ChildData: string;
   private _filter_query: string = 'Rohit';
   get FilteredQuery(): string {
     return this._filter_query;
@@ -58,14 +37,22 @@ export class DataTableExampleComponent implements OnInit {
   }
   PerformFilter(q: string): IProduct[] {
     q = q.toLocaleLowerCase();
-
-    return this.DataTableData.filter(i =>
-
-      i.Name.toLocaleLowerCase().indexOf(q) !== -1
-    );
+    return this.DataTableData.filter(i => i.Name.toLocaleLowerCase().indexOf(q) !== -1);
   }
 
   ngOnInit(): void {
-  }
+    const $obs = this.oProdDataSer.getProduct().subscribe({
+      next(prod) {
+        this.FilterData = prod;
+      }, error(err: HttpErrorResponse) {
+        console.log(err);
+      }
 
+    });
+
+  }
+  ProductName(message: string): void {
+    console.log(message);
+    this.ChildData = message;
+  }
 }
