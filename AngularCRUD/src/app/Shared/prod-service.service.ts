@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProduct } from '../data-table-example/data-table-example.component';
 import { Observable } from 'rxjs';
-// import {} from 'rxjs/Operator';
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ProdServiceService {
 
   getProduct(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.prodUrl).pipe(
-
+      tap(data => console.log(data))
     );
   }
 

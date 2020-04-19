@@ -41,14 +41,10 @@ export class DataTableExampleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const $obs = this.oProdDataSer.getProduct().subscribe({
-      next(prod) {
-        this.FilterData = prod;
-      }, error(err: HttpErrorResponse) {
-        console.log(err);
-      }
-
-    });
+    const $obs = this.oProdDataSer.getProduct().subscribe(
+      data => console.log(data),
+      err => console.error(err)
+    );
 
   }
   ProductName(message: string): void {
